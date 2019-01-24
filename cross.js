@@ -305,9 +305,9 @@ function createNewPuzzle(rows, cols) {
     "acrossWord": '',
     "downWord": '',
     "acrossStartIndex": 0,
-    "acrossEndIndex": DEFAULT_SIZE,
+    "acrossEndIndex": rows,
     "downStartIndex": 0,
-    "downEndIndex": DEFAULT_SIZE,
+    "downEndIndex": cols,
     "direction": ACROSS
   };
 
@@ -651,8 +651,8 @@ function getWordAt(row, col, direction, setCurrentWordIndices) {
 function getWordIndices(text, position) {
   let start = text.slice(0, position).lastIndexOf(BLACK);
   start = (start == -1) ? 0 : start + 1;
-  let end = text.slice(position, DEFAULT_SIZE).indexOf(BLACK);
-  end = (end == -1) ? DEFAULT_SIZE : Number(position) + end;
+  let end = text.slice(position, xw.rows).indexOf(BLACK);
+  end = (end == -1) ? xw.rows : Number(position) + end;
   return [start, end];
 }
 
