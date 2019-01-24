@@ -301,12 +301,8 @@ function openFile(e) {
 
 function convertJSONToPuzzle(puz) {
   createNewPuzzle();
-  if (puz.size.rows != DEFAULT_SIZE || puz.size.cols != DEFAULT_SIZE) {
-    new Notification("Oops. Can only open 15 x 15 puzzles.", 10);
-    return;
-  }
-  xw.rows = DEFAULT_SIZE;
-  xw.cols = DEFAULT_SIZE;
+  xw.rows = puz.rows;
+  xw.cols = puz.size;
   // Update puzzle title, author
   xw.title = puz.title || DEFAULT_TITLE;
   if (puz.title.slice(0,8).toUpperCase() == "NY TIMES") {
