@@ -47,7 +47,9 @@ function openWordlistFile(e) {
   wordlist = [
     [], [], [], [], [],
     [], [], [], [], [],
-    [], [], [], [], [], []
+    [], [], [], [], [], 
+    [], [], [], [], [], 
+    []
   ];
 
   const file = e.target.files[0];
@@ -98,6 +100,7 @@ function matchFromWordlist(word) {
     word = word.split(DASH).join("\\w");
     const pattern = new RegExp(word);
     let matches = [];
+    if (l > wordlist.length) return matches;
     for (let i = 0; i < wordlist[l].length; i++) {
       if (wordlist[l][i].search(pattern) > -1) {
         matches.push(wordlist[l][i]);
