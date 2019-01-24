@@ -300,9 +300,9 @@ function openFile(e) {
 }
 
 function convertJSONToPuzzle(puz) {
-  createNewPuzzle();
-  xw.rows = puz.rows;
-  xw.cols = puz.size;
+  createNewPuzzle(puz.size.rows,puz.size.cols);
+  xw.rows = puz.size.rows;
+  xw.cols = puz.size.cols;
   // Update puzzle title, author
   xw.title = puz.title || DEFAULT_TITLE;
   if (puz.title.slice(0,8).toUpperCase() == "NY TIMES") {
