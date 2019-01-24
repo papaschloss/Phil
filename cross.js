@@ -282,6 +282,10 @@ current.update();
 // F U N C T I O N S
 
 function createNewPuzzle(rows, cols) {
+  var r = confirm("Are you sure you want to create a new puzzle?");
+  if (r == false) {
+    return;
+  } 
   xw["clues"] = {};
   xw["title"] = DEFAULT_TITLE;
   xw["author"] = DEFAULT_AUTHOR;
