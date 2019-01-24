@@ -16,6 +16,30 @@
     <button id="new-grid" type="button" data-tooltip="New puzzle" onclick="createNewPuzzle()">
       <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
     </button>
+    <input id="open-new-grid" class="hidden" type="file" accept=".json,.txt,.xw,.puz"/>
+    <div id="export-menu" class="menu hidden" onmouseleave="hideMenu(event)">
+      <h4>New puzzle:</h4>
+      Width: <span id="puzzle-width" class="editable" contenteditable="true"
+      onkeydown="suppressEnterKey(event)">15</span>
+      Height: <span id="puzzle-height" class="editable" contenteditable="true"
+      onkeydown="suppressEnterKey(event)">15</span>
+      <button id="create-new-grid" class="default" type="button" onmouseup="setDefault(event)" onclick="createNewPuzzle(document.getElementById('puzzle-width').innerHTML,document.getElementById('puzzle-height').innerHTML)">
+           <i class="fa fa-download fa-fw" aria-hidden="true"></i>
+      </button>
+      <!--
+      <button id="export-JSON" class="default" type="button" data-tooltip="Phil puzzle (.xw)" onmouseup="setDefault(event)" onclick="writeFile('xw')">
+        <i class="fa fa-download fa-fw" aria-hidden="true"></i>
+      </button>
+      <button id="export-PUZ" type="button" data-tooltip="Across Lite puzzle (.puz)" onmouseup="setDefault(event)" onclick="writeFile('puz')">
+        <i class="fa fa-download fa-fw" aria-hidden="true"></i>
+      </button>
+      <button id="print-puzzle" type="button" data-tooltip="Printable puzzle (.pdf)" onmouseup="setDefault(event)" onclick="printPDF()">
+        <i class="fa fa-print fa-fw" aria-hidden="true"></i>
+      </button>
+      <button id="print-NYT-submission" type="button" data-tooltip="NYT submission (.pdf)" onmouseup="setDefault(event)" onclick="printPDF('nyt')">
+        <i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>
+      </button> -->
+    </div>
     <button id="open-JSON" type="button" data-tooltip="Open puzzle..." onmouseenter="showMenu(event)" onclick="openPuzzle()">
       <i class="fa fa-folder-open-o fa-fw" aria-hidden="true"></i>
     </button>
